@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>POS Terdekat</title>
+</head>
+<body>
+  <h2>🔍 Cek POS Terdekat</h2>
+  <p>Menentukan lokasi kamu...</p>
+
+  <script>
+    navigator.geolocation.getCurrentPosition(success, error);
+
+    function success(pos) {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      window.location.href = `https://pos-api-fyxnm84xudbbvk5nmyhbxb.streamlit.app/?lat=${lat}&lon=${lon}`;
+    }
+
+    function error() {
+      document.body.innerHTML = "<p>Gagal mendapatkan lokasi. Pastikan izin lokasi diaktifkan.</p>";
+    }
+  </script>
+</body>
+</html>
